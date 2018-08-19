@@ -1,28 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HederComponent } from './heder/heder.component';
-import { RecipiesComponent } from './recipies/recipies.component';
-import { RecipiesListComponent } from './recipies/recipies-list/recipies-list.component';
-import { RecipieDetailComponent } from './recipies/recipie-detail/recipie-detail.component';
-import { RecipieItemComponent } from './recipies/recipies-list/recipie-item/recipie-item.component';
-import { ShoppigListComponent } from './shoppig-list/shoppig-list.component';
-import { ShoppingEditComponent } from './shoppig-list/shopping-edit/shopping-edit.component';
+import { HeaderComponent } from './header/header.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HederComponent,
-    RecipiesComponent,
-    RecipiesListComponent,
-    RecipieDetailComponent,
-    RecipieItemComponent,
-    ShoppigListComponent,
+    HeaderComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    ShoppingListComponent,
     ShoppingEditComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
