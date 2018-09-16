@@ -1,0 +1,4 @@
+  <select (change)="onChatPartnerSelected($event.target.value)" name="selected_user">
+    <option></option>
+    <option *ngFor="let user of availableUsers | async" [value]="user" >{{user}}</option>
+  </select>
