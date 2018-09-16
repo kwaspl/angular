@@ -1,0 +1,39 @@
+//4272766e7704f6859d6677b78fd909d4baa9039c
+//a2ec499c6d2db0e826f65dd1d98e3b45678611f6
+
+//to create a new account
+geth --datadir node1/ account new
+
+//tool to create genessis block
+puppeth
+
+//to iitialize new blockchain
+geth --datadir node1/ init piotrdevnet.json
+
+//to start geth node in mining mode
+geth --networkid 2015 --rpccorsdomain "*" --nodiscover --maxpeers 0 --rpc --mine  --rpcapi eth,web3,personal,net --rpcaddr 0.0.0.0 --rpcport 8545  --port 30303 --nat any  --verbosity 5 --debug --pprof  --datadir node1/ console  2>> logs.etherium
+
+//to attache
+geth attach node1/geth.ipc
+
+//start node to access console
+geth --networkid 2015 --datadir node1/ console
+
+//get the ballance from the miner
+web3.fromWei(eth.getBalance(eth.coinbase), "ether")
+
+//to unclock the account
+personal.unlockAccount(web3.eth.coinbase, "123", 15000)
+
+//get current block number
+eth.blockNumber
+
+//to transfer money
+eth.sendTransaction({from:'0x4272766e7704f6859d6677b78fd909d4baa9039c', to:'0x4d18fda869987b67ad4d46b06df3e6faf6397e1d', value: web3.toWei(0.05, "ether"), gas:21000});
+
+//import account created in metamask
+geth account import <keyfile>
+
+
+//to run the compiler
+node compile.js

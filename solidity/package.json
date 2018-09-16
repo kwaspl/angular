@@ -1,0 +1,25 @@
+{
+  "name": "solidity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --timeout 100000",
+    "testInbox": "mocha --timeout 100000 ./test/Inbox.test.js",
+    "testLottery": "mocha --timeout 100000 ./test/Lottery.test.js",
+    "test2out3Multisig" : "mocha --timeout 1000000 ./test/MultiSig2of3.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ganache-cli": "^6.1.6",
+    "mocha": "^5.2.0",
+    "solc": "^0.4.24",
+    "truffle-hdwallet-provider": "0.0.6",
+    "web3": "^1.0.0-beta.34"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "should": "^13.2.3"
+  }
+}
