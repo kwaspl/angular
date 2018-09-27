@@ -1,19 +1,28 @@
 import { Injectable } from '@angular/core';
-import { UUID } from 'angular2-uuid';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserInfoService {
 
-  private userLogin: string;
 
-  constructor() {
-    this.userLogin = UUID.UUID();
+  private userLogin: string;
+  private chatRoomId: string = 'xx';
+
+  constructor() {}
+
+  getChatRoomId(): string {
+    return this.chatRoomId;
   }
 
   public getUserLogin(): string{
     return this.userLogin;
   }
 
+  setUserId(userId: string): void {
+    this.userLogin = userId;
+  }
+  setChatRoomId(chatRoomId: string): void {
+    this.chatRoomId = chatRoomId;
+  }
 }

@@ -1,3 +1,4 @@
-<app-presnetation [availableUsers]="smartAvailableUsers"
-                  (userChosenEvent)="userSelected($event)"
-></app-presnetation>
+<app-presentation [messages]="messages"
+                  [user]="user"
+                  (sendMessageEvent)="onMessageSend($event)"
+></app-presentation>

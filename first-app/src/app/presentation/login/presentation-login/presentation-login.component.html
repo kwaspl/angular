@@ -3,27 +3,26 @@
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
   <mat-card-content>
-    <form class="example-form">
       <table class="example-full-width" cellspacing="0">
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-            <input matInput placeholder="Username" name="username" required>
+            <input matInput placeholder="Username" name="username" required [formControlName]="'username'">
             </mat-form-field>
           </td>
         </tr>
         <tr>
         <td><mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" type="password" name="password" required>
+          <input matInput placeholder="Chat room name:" type="password" name="password" required [formControlName]="'chatroomname'">
         </mat-form-field></td>
         </tr>
     </table>
-    </form>
-    <!--<mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary">Login</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
   </mat-card-actions>
+  </form>
 </mat-card>
 </div>
