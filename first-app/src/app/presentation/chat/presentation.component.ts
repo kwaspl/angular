@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Message } from '../../datamodel/message.datamodel'
+import { Message } from '../../datamodel/message.datamodel';
 
 @Component({
 
@@ -11,10 +11,7 @@ import { Message } from '../../datamodel/message.datamodel'
 })
 export class PresentationComponent implements OnInit {
 
-  messageForm:FormGroup = new FormGroup({
-    'messageText': new FormControl('')
-  });
-
+  @Input() messageForm: FormGroup;
   @Input() messages: Message[];
   @Input() availableUsers: Observable<string[]>;
   @Input() user: string;
@@ -25,8 +22,8 @@ export class PresentationComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendMessage():void{
-    this.sendMessageEvent.emit(this.messageForm.value.messageText)
+  sendMessage(): void {
+    this.sendMessageEvent.emit(this.messageForm.value.messageText);
     this.messageForm.reset();
   }
 }

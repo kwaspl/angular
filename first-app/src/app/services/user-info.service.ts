@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import { AppModule } from '../app.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: AppModule
 })
 export class UserInfoService {
 
 
   private userLogin: string;
-  private chatRoomId: string = 'xx';
+  private chatRoomId = 'xx';
 
   constructor() {}
 
@@ -15,7 +16,7 @@ export class UserInfoService {
     return this.chatRoomId;
   }
 
-  public getUserLogin(): string{
+  public getUserLogin(): string {
     return this.userLogin;
   }
 
