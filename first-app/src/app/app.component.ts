@@ -1,13 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NgForm } from '@angular/forms'
-
-import { WebSocketSubject, webSocket } from 'rxjs/websocket';
-import { Observable, Subject, from } from 'rxjs';
-import { map, take, filter } from 'rxjs/operators';
-
-import { UUID } from 'angular2-uuid';
-import { Message } from './datamodel/message.datamodel'
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +7,7 @@ import { Message } from './datamodel/message.datamodel'
 })
 export class AppComponent implements OnInit, OnDestroy  {
 
-  constructor(){}
+  constructor() {}
 
   ngOnDestroy() {}
 

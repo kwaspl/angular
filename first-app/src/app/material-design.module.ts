@@ -1,8 +1,8 @@
-import {NgModule} from "@angular/core";
+import {NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
-  MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatListModule, MatSelectModule
+  MatToolbarModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatListModule, MatSelectModule
 } from '@angular/material';
 
 @NgModule({

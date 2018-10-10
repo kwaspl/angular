@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule }    from '@angular/common/http';
+
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { SmartComponent } from './smart/chat/smart.component';
-import { PresentationComponent } from './presentation/chat/presentation.component'
+import { PresentationComponent } from './presentation/chat/presentation.component';
 import { PresentationLoginComponent } from './presentation/login/presentation-login/presentation-login.component';
 import { SmartLoginComponent } from './smart/login/smart-login/smart-login.component';
 import { SmartMenuBarComponent } from './smart/menu/smart-menu-bar/smart-menu-bar.component';
@@ -32,7 +32,6 @@ import { AppRoutingModule } from './router.module';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialDesignModule,

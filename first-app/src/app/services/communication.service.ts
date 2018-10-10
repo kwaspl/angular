@@ -11,18 +11,19 @@ export class CommunicationService {
 
   private socket$: WebSocketSubject<Message>;
 
-  constructor(private userInfo: UserInfoService) {
+  constructor(private userInfo: UserInfoService ) {
     this.socket$ = webSocket(environment.chatServerAddress
-                          +"?login="+this.userInfo.getUserLogin());
+                          + '?login=' + this.userInfo.getUserLogin());
   }
 
-  public chatMessageObserver() : Observable<Message>{
+
+  public chatMessageObserver(): Observable<Message> {
     return this.socket$
       .asObservable()
-      .pipe(filter((message) => { return message.Type == 'Message';}))
+      .pipe(filter((message) => message.Type == 'Message'));
   }
-
-  public sendMessage(message : Message): void{
+ 
+  public sendMessage(message: Message): void {
     this.socket$.next(message);
   }
 

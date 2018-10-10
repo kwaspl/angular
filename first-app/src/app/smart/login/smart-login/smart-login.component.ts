@@ -9,11 +9,11 @@ import { UserInfoService } from '../../../services/user-info.service';
 })
 export class SmartLoginComponent implements OnInit {
 
-  constructor(private router:Router, private userService: UserInfoService) {}
+  constructor(private router: Router, private userService: UserInfoService) {}
 
   ngOnInit() {}
 
-  login(evant: any):void{
+  login(evant: any): void {
     this.userService.setChatRoomId(evant.chatRoomId);
     this.userService.setUserId(evant.userId);
 

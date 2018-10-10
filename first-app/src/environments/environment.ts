@@ -1,10 +1,11 @@
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
-  chatServerAddress:'ws://http://35.204.140.34/ws'
+  chatServerAddress: 'ws://localhost:8080/ws'
 };
 
 /*

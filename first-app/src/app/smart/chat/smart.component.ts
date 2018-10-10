@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
-import { CommunicationService } from '../../services/communication.service'
-import { Message } from '../../datamodel/message.datamodel'
+import { CommunicationService } from '../../services/communication.service';
+import { Message } from '../../datamodel/message.datamodel';
 import { UserInfoService } from '../../services/user-info.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-smart',
@@ -13,10 +13,13 @@ import { UserInfoService } from '../../services/user-info.service';
 export class SmartComponent implements OnInit {
 
   messages: Message[] = [];
-  user:string;
+  user: string;
   chatRoom: string;
+  messageForm: FormGroup = new FormGroup({
+    'messageText': new FormControl('')
+  });
 
-  constructor(private communicationService:CommunicationService, private userService:UserInfoService) {
+  constructor(private communicationService: CommunicationService, private userService: UserInfoService) {
     this.user = this.userService.getUserLogin();
     this.chatRoom = this.userService.getChatRoomId();
   }
@@ -28,11 +31,10 @@ export class SmartComponent implements OnInit {
     });
   }
 
-  onMessageSend(message:string){
-    const toBeSend:Message = new Message( this.user, this.chatRoom,{text: message}, 'Message', false);
+  onMessageSend(message: string) {
+    const toBeSend: Message = new Message( this.user, this.chatRoom, { text: message}, 'Message', false);
     console.log(toBeSend);
     this.messages.push(toBeSend);
     this.communicationService.sendMessage(toBeSend);
   }
-
 }
