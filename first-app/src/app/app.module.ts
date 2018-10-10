@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule }    from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -16,11 +15,6 @@ import { PresentationMenuBarnComponent } from './presentation/menu/presentation-
 
 import { CommunicationService } from './services/communication.service';
 import { UserInfoService } from './services/user-info.service';
-import { KeyExchangeService } from './services/key-exchange.service';
-
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 
 import { MaterialDesignModule } from './material-design.module';
 import { AppRoutingModule } from './router.module';
@@ -45,8 +39,7 @@ import { AppRoutingModule } from './router.module';
     AppRoutingModule
   ],
   providers: [CommunicationService,
-              UserInfoService,
-              KeyExchangeService
+              UserInfoService
   ],
   bootstrap: [AppComponent]
 })

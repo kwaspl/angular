@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class UserInfoService {
 
 
-  private userLogin: string;
+  private userLogin: string; 
   private chatRoomId: string = 'xx';
 
   constructor() {}

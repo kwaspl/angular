@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
-import { CommunicationService } from '../../../services/communication.service';
 import { UserInfoService } from '../../../services/user-info.service';
 
 @Component({
