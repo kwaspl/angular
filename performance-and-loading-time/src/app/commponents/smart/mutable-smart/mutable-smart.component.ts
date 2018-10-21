@@ -1,17 +1,15 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnChanges, DoCheck } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnChanges, DoCheck, AfterContentChecked, AfterViewChecked } from '@angular/core';
 import { List } from 'immutable';
 import { PeriodicElement } from './datamodel/PeriodicElement';
 
 @Component({
-  template: `<app-mutable-presentation
-                [elements]="elements" 
-                (removeLast_)="removeLastUser($event)"
-                (recreate)="recreateList($event)"
-              >
-            </app-mutable-presentation>`,
+  template: `<app-mutable-table [elements]="elements"></app-mutable-table>
+            <app-mutable-actions 
+            (removeLast_)="removeLastUser($event)"
+            (recreate)="recreateList($event)"></app-mutable-actions>`,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MutableSmartComponent implements OnInit, DoCheck {
+export class MutableSmartComponent implements OnInit, AfterViewChecked {
 
   public elements: List<PeriodicElement>;
 
@@ -21,7 +19,7 @@ export class MutableSmartComponent implements OnInit, DoCheck {
     this.elements = this.elements.delete(0);
   }
 
-  ngDoCheck(){
+  ngAfterViewChecked(){
     console.log("mu.sm - changes");
   }
 

@@ -1,13 +1,3 @@
-<div class="tbl-content">
-  <table cellpadding="0" cellspacing="0" border="0">
-    <tr *ngFor="let element of elements; trackBy: trackByFn">
-      <td>{{element.name}}</td>
-      <td>{{element.position}}</td>
-      <td>{{element.weight}}</td>
-      <td>{{element.symbol}}</td>
-    </tr>
-  </table>
-</div>
 <mat-form-field class="example-full-width">
   <input matInput #newelement placeholder="new element" name="username" (keyup.enter)="newElement.emit(newelement.value)">
 </mat-form-field>
