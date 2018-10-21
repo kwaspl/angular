@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnChanges, DoCheck } from '@angular/core';
 import { List } from 'immutable';
 import { PeriodicElement } from './datamodel/PeriodicElement';
 
@@ -9,9 +9,9 @@ import { PeriodicElement } from './datamodel/PeriodicElement';
                 (recreate)="recreateList($event)"
               >
             </app-mutable-presentation>`,
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MutableSmartComponent implements OnInit, OnChanges {
+export class MutableSmartComponent implements OnInit, DoCheck {
 
   public elements: List<PeriodicElement>;
 
@@ -21,8 +21,8 @@ export class MutableSmartComponent implements OnInit, OnChanges {
     this.elements = this.elements.delete(0);
   }
 
-  ngOnChanges(){
-    console.log("mu.sm - check")
+  ngDoCheck(){
+    console.log("mu.sm - changes");
   }
 
   recreateList(event:any): void {

@@ -1,13 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, Output, EventEmitter, OnChanges, DoCheck} from '@angular/core';
 import { PeriodicElement } from '../../smart/mutable-smart/datamodel/PeriodicElement'
 
 @Component({
   selector: 'app-mutable-presentation',
   templateUrl: './mutable-presentation.component.html',
   styleUrls: ['./mutable-presentation.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MutablePresentationComponent implements OnInit, OnChanges {
+export class MutablePresentationComponent implements OnInit, DoCheck {
 
   @Input()  
   elements: Array<PeriodicElement>;
@@ -21,25 +21,16 @@ export class MutablePresentationComponent implements OnInit, OnChanges {
   @Output()  
   newElement: EventEmitter<string> = new EventEmitter();
 
-  ngOnChanges(){
-    console.log("mu.pr - check")
-  }
-
-  recreateWithNewItem():void{
-    this.recreate.emit();
-  }
-
-  removeLast():void{
-    this.removeLast_.emit();
+  ngDoCheck(){
+    console.log("mu.pr - changes");
   }
 
   trackByFn(index, item) {
     return item.position; // or item.id
   }
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

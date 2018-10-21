@@ -12,5 +12,5 @@
   <input matInput #newelement placeholder="new element" name="username" (keyup.enter)="newElement.emit(newelement.value)">
 </mat-form-field>
 <br>
-<button mat-raised-button color="primary" (click)="removeLast()">Delete From Presentation</button>
-<button mat-raised-button color="primary" (click)="recreateWithNewItem()">Recreate with new item</button>
+<button mat-raised-button color="primary" (click)="removeLast_.emit()">Delete From Presentation</button>
+<button mat-raised-button color="primary" (click)="recreate.emit()">Recreate with new item</button>
