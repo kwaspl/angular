@@ -1,6 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router'
+import { Store } from '@ngrx/store';
+import { UserInfo } from 'src/app/reducers';
+import { LoginEvent } from './datamodel/loginEvent';
+import { Login } from 'src/app/auth/auth.actions';
+
 @Component({
   template: `<app-login-presentation
               [loginForm]="loginForm"
@@ -10,18 +15,17 @@ import { Router } from '@angular/router'
             changeDetection: ChangeDetectionStrategy.OnPush
 }
 )
-export class LoginSmartComponent implements OnInit {
+export class LoginSmartComponent {
 
  loginForm:FormGroup  = new FormGroup({
     'username': new FormControl(''),
     'chatroomname' : new FormControl('')
   });
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private store: Store<UserInfo>) {}
 
-  ngOnInit() {}
-
-  login(): void {}
-
-  navigate(event:any) : void {this.router.navigate(['/ui']);}
+  navigate(event:LoginEvent) : void {
+    this.store.dispatch(new Login({user:"1"}));
+    this.router.navigate(['/ui']);
+  }
 }

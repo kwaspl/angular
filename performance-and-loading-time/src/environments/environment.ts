@@ -4,7 +4,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   chatServerAddress: 'ws://localhost:8080/ws'
 };
 

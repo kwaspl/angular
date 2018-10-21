@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { LoginEvent } from '../../smart/login-smart/datamodel/loginEvent';
 
 @Component({
   selector: 'app-login-presentation',
@@ -7,19 +8,14 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./login-presentation.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginPresentationComponent implements OnInit {
+export class LoginPresentationComponent {
 
-  @Input() loginForm:FormGroup
-  @Output() navigate:EventEmitter<any> = new EventEmitter();;
+  @Input() loginForm:FormGroup;
+  @Output() navigate:EventEmitter<LoginEvent> = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
   login(){
-    this.navigate.emit({chatRoomId: this.loginForm.value.chatroomname,userId: this.loginForm.value.username})
+    this.navigate.emit({chatRoomId: this.loginForm.value.chatroomname, userId: this.loginForm.value.username})
   }
-
-  ngOnInit() {
-    
-  }
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy,AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'app-menu-smart',
@@ -6,10 +6,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   ><app-menu-presentation>`,
 changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuSmartComponent implements OnInit {
+export class MenuSmartComponent implements OnInit, AfterViewChecked {
 
   constructor() { }
 
   ngOnInit() {}
 
+  ngAfterViewChecked(){
+    console.log("menu.smart - changes");
+  }
 }

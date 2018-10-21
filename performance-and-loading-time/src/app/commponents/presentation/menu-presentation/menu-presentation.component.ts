@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy, AfterViewChecked} from '@angular/core';
 
 @Component({
   selector: 'app-menu-presentation',
@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter, ChangeDetectionStrategy} from 
   styleUrls: ['./menu-presentation.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MenuPresentationComponent implements OnInit {
+export class MenuPresentationComponent implements OnInit, AfterViewChecked {
 
   public name:string = 'App'
 
@@ -16,6 +16,10 @@ export class MenuPresentationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+
+  ngAfterViewChecked(){
+    console.log("menu.pr - changes");
+  }
 
   private about():void{
     this.navigateToAbout.emit();

@@ -13,6 +13,7 @@ import { MatModuleModule } from './mat-module.module';
 
 import {CommonModule} from '@angular/common';
 import { MutableActionsComponent } from './commponents/presentation/mutable-presentation/mutable-actions/mutable-actions.component';
+import { MutableRowComponent } from './commponents/presentation/mutable-presentation/mutable-table/mutable-row/mutable-row.component';
 
 const routes: Routes = [
   { path: '', component : ShellPresentationComponent,
@@ -28,7 +29,7 @@ const routes: Routes = [
   exports: [ RouterModule ], 
   declarations: [ MenuPresentationComponent, MenuSmartComponent,
                   ShellPresentationComponent,
-                  MutableSmartComponent, MutableTableComponent, MutableActionsComponent,
+                  MutableSmartComponent, MutableTableComponent, MutableActionsComponent, MutableRowComponent,
                   ImmutableSmartComponent, ImmutablePresentationComponent]
 })
 export class CustomersModule {}

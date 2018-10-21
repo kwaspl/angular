@@ -17,7 +17,7 @@ export class MutableTableComponent implements AfterViewChecked {
   }
 
   trackByFn(index, item) {
-    return item.position; // or item.id
+    return item.position;
   }
 
 }
