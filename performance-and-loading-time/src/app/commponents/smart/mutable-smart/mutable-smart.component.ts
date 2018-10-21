@@ -1,18 +1,17 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 import { List } from 'immutable';
 import { PeriodicElement } from './datamodel/PeriodicElement';
 
 @Component({
-  template: `<app-about-presentation
+  template: `<app-mutable-presentation
                 [elements]="elements" 
                 (removeLast_)="removeLastUser($event)"
                 (recreate)="recreateList($event)"
               >
-            </app-about-presentation>
-            <button mat-raised-button color="primary" (click)="removeLastUser($event)">Delete From Smart</button>`,
-  changeDetection: ChangeDetectionStrategy.OnPush
+            </app-mutable-presentation>`,
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class AboutSmartComponent implements OnInit {
+export class MutableSmartComponent implements OnInit, OnChanges {
 
   public elements: List<PeriodicElement>;
 
@@ -20,6 +19,10 @@ export class AboutSmartComponent implements OnInit {
 
   removeLastUser(event: any): void {
     this.elements = this.elements.delete(0);
+  }
+
+  ngOnChanges(){
+    console.log("mu.sm - check")
   }
 
   recreateList(event:any): void {
@@ -37,7 +40,7 @@ export class AboutSmartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.recreateList(null);
+    this.recreateList({});
   }
 
 }

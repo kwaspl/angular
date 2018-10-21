@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-shell-presentation',
@@ -6,11 +6,15 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./shell-presentation.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShellPresentationComponent implements OnInit {
+export class ShellPresentationComponent implements OnInit,OnChanges {
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(){
+    console.log("pr.shell - check");
   }
 
 }
