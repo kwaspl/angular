@@ -25,7 +25,7 @@ export class LoginSmartComponent {
   constructor(private router:Router, private store: Store<UserInfo>) {}
 
   navigate(event:LoginEvent) : void {
-    this.store.dispatch(new Login({user:"1"}));
+    this.store.dispatch(new Login(event));
     this.router.navigate(['/ui']);
   }
 }

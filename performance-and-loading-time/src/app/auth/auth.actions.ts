@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { LoginEvent } from '../commponents/smart/login-smart/datamodel/loginEvent';
 
 export enum AuthActionTypes {
   LoginAction = '[Login] Action',
@@ -6,8 +7,6 @@ export enum AuthActionTypes {
 }
 
 export class Login implements Action {
-  readonly type = AuthActionTypes.LoginAction;
-  constructor(public payload: {user:string}){}
+  public readonly type = AuthActionTypes.LoginAction;
+  constructor(public event:LoginEvent){}
 }
-
-export type AuthActions = Login;

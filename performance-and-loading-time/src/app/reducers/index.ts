@@ -7,6 +7,8 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import { LoginEvent } from '../commponents/smart/login-smart/datamodel/loginEvent';
+import { AuthActionTypes } from '../auth/auth.actions';
+import { Action } from '@ngrx/store';
 
 type AuthState = {
   loggedIn: boolean;
@@ -17,7 +19,20 @@ export interface UserInfo {
   auth: AuthState;
 }
 
-export function authReducer(state:AuthState, action): AuthState{
+const initialState:AuthState = {
+  loggedIn:false,
+  user:undefined
+}
+
+export function authReducer(state:AuthState = initialState, action): AuthState{
+  switch(action.type){
+    case AuthActionTypes.LoginAction:
+    console.log('2');
+      return {
+        loggedIn: true,
+        user: action.event
+      }
+  }
   return state;
 }
 
