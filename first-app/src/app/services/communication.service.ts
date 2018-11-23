@@ -12,6 +12,7 @@ export class CommunicationService {
   private socket$: WebSocketSubject<Message>;
 
   constructor(private userInfo: UserInfoService ) {
+    console.log('calling address: ' + environment.chatServerAddress)
     this.socket$ = webSocket(environment.chatServerAddress
                           + '?login=' + this.userInfo.getUserLogin());
   }

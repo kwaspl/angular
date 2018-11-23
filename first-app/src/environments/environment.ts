@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  chatServerAddress: 'ws://localhost:8080/ws'
+  chatServerAddress: 'ws://35.186.217.4/chat/ws'
 };
 
 /*

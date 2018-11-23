@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  chatServerAddress:'/chat/ws'
+  chatServerAddress:'ws://'+window.location.hostname+'/chat/ws'
 };
